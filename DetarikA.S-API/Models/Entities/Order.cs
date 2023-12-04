@@ -4,6 +4,8 @@
     {       
         public decimal TotalPrice { get; set; }
         public int DealerID { get; set; }
+        
+
 
         //Relational Properties
         public virtual Dealer Dealer { get; set; }

@@ -9,7 +9,7 @@ namespace DetarikA.S_API.Configurations
         public override void Configure(EntityTypeBuilder<OrderDetail> builder)
         {
             base.Configure(builder);
-            builder.Property(x => x.UnitPrice).HasColumnType("money");
+            //builder.Property(x => x.UnitPrice).HasColumnType("money");
             builder.Ignore(x => x.ID);
             builder.HasKey(x => new { x.OrderID, x.ProductID });
         }
