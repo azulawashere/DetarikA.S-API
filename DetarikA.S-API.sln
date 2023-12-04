@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34316.72
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DetarikA.S-API", "DetarikA.S-API\DetarikA.S-API.csproj", "{4D363862-D926-4D04-8DD6-AFE87648AB46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D363862-D926-4D04-8DD6-AFE87648AB46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D363862-D926-4D04-8DD6-AFE87648AB46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D363862-D926-4D04-8DD6-AFE87648AB46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D363862-D926-4D04-8DD6-AFE87648AB46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EF2776DE-4F75-4947-BE78-40BB2DC58EDE}
+	EndGlobalSection
+EndGlobal
