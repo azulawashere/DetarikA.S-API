@@ -1,0 +1,44 @@
+TedarikA.S API Dökümantasyonu
+
+
+API Islemleri:
+
+Firmamıza ürün siparişi etmek için bu API'ya bir post yöntemi ile sipariş edebilirsiniz.
+
+    public class SiparisPoco
+    {
+        public string CompanyName { get; set; }
+        public string ProductName { get; set; }
+        public int Quantity { get; set; }
+    }
+
+Bu model sizin kullanıcınızın size verdiğin inputlardan alınarak Post yöntemi ile bizim tarafımızdaki Action’a ulastırılmak zorundadır.Bu Bilgiler CompanyName(Firma Adı),ProductName(Ürün Adı), Quantity(Üründen kaç adet istediğiniz).
+
+
+Bu işlemi gerçekleştirebileceğiniz örnek C# kodu aşağıdadır..Bu kodlar icin HttpClient konfigurasyonu yapılmalı ve Newtonsoft.Json kütüphanesi indirilmelidir : 
+
+.Net Core icin HTTPClientFactory service registration yapılmalıdır. Bunun icin tavsiyemiz güncel version üzerinde konusursak Program.cs icerisine su kod ifadesinden sonra : 
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args); (normalde burada builder isimli degişkenin tipini var olarak görürsünüz)
+
+Yazılacak kod : 
+builder.services.AddHttpClient();
+
+Bu service Registration işlemini yaptıktan sonra ilgili Controller icerisinde:
+
+private readonly IHttpClientFactory _httpClientFactory;
+public HomeController(IHttpClientFactory httpClientFactory)
+{
+  _httpClientFactory = httpClientFactory;
+}
+//Asagıdaki Poco tipinin yukarıdaki örnekte verdigimiz özelliklerde olusturulması gerekmektedir.Action isimleri temsilidir.
+public async Task<IActionResult> CommitOrder(OdemePoco item)
+{
+HttpClient client = _httpClientFactory.CreateClient();
+string jsonData = JsonConvert.SerializeObject(item);
+StringContent content = new StringContent(jsonData,Encoding.UTF8,”application/json”);
+HttpResponseMessage responseMessage =
+await client.PostAsync(“Projenizin yayındaki API adresi…”,content);
+
+Basarılı bir işlem sonucunda response "Sipariş Alındı" olarak dönecektir. ve Sipariş işlemlerimiz başlıcaktır.
+
+Başarasız ise hata kodu 400 ile karşılaşıcaksınız. CompanyName Yada ProductName Alanlarını Hatalı girdiğinizden dolayı.
