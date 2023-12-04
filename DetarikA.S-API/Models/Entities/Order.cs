@@ -2,7 +2,7 @@
 {
     public class Order : BaseEntity
     {       
-        public string TotalPrice { get; set; }
+        public decimal TotalPrice { get; set; }
         public int DealerID { get; set; }
 
         //Relational Properties

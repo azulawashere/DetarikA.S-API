@@ -8,7 +8,7 @@ namespace DetarikA.S_API.Configurations
         public override void Configure(EntityTypeBuilder<Dealer> builder)
         {
             base.Configure(builder);
-            builder.HasMany(x => x.Orders).WithOne(x => x.Dealer).HasForeignKey(x => x.DealarID).IsRequired();
+            //builder.HasMany(x => x.Orders).WithOne(x => x.Dealer).HasForeignKey(x => x.DealerID).IsRequired();
         }
     }
 }

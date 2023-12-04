@@ -10,7 +10,7 @@ namespace DetarikA.S_API.Configurations
         {
             base.Configure(builder);
             builder.Property(x => x.TotalPrice).HasColumnType("money");
-            builder.HasMany(x => x.OrderDetails).WithOne(x => x.Order).HasForeignKey(x=> x.OrderID).IsRequired();
+            //builder.HasMany(x => x.OrderDetails).WithOne(x => x.Order).HasForeignKey(x=> x.OrderID).IsRequired();
         }
     }
 }
